@@ -16,8 +16,8 @@ global.appVersion = app.getVersion();
 let defaultFilePath = path.join(app.getPath('desktop'), `${app.name} Files`);
 let defaultConfig = {
   Config: {
-    App: { filesPath: defaultFilePath, debug: false, clearLogOnLogin: false, maxLogEntries: 100, httpsMode: false, minimizeToTray: false },
-    Proxy: { port: 8080, autoStart: false },
+    App: { filesPath: defaultFilePath, debug: false, clearLogOnLogin: false, maxLogEntries: 100, httpsMode: true, minimizeToTray: false },
+    Proxy: { port: 8081, autoStart: true },
     Plugins: {},
   },
 };
@@ -54,6 +54,7 @@ function createWindow() {
       nodeIntegration: true,
       // TODO: remote will be removed with electron 13, so this should be migrated to ipcRenderer.invoke at some point
       enableRemoteModule: true,
+      contextIsolation: false,
     },
   });
 

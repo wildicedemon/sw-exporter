@@ -117,6 +117,7 @@ module.exports = {
     }
 
     if (runesInfo.length > 0) {
+      console.log('Dump!: ', rune) 
       proxy.log({
         type: 'info',
         source: 'plugin',

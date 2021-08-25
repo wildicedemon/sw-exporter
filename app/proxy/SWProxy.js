@@ -49,6 +49,7 @@ class SWProxy extends EventEmitter {
           try {
             reqData = decrypt_request(Buffer.concat(ctx.SWRequestChunks).toString());
             respData = decrypt_response(Buffer.concat(ctx.SWResponseChunks).toString());
+            console.log("REQ: ", reqData, "RESP: ", respData)
           } catch (e) {
             // Error decrypting the data, log and do not fire an event
             self.log({ type: 'debug', source: 'proxy', message: `Error decrypting request data - ignoring. ${e}` });
